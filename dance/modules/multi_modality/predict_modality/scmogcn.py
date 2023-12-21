@@ -130,8 +130,8 @@ class ScMoGCNWrapper:
         TRAIN_SIZE = kwargs['TRAIN_SIZE']
 
         #g = g.to(self.args.device)
-        y = y.float().to(self.args.device)
-        y_test = y_test.float().to(self.args.device) if y_test is not None else None
+        #y = y.float().to(self.args.device)
+        #y_test = y_test.float().to(self.args.device) if y_test is not None else None
 
         if verbose > 1 and logger is None:
             logger = open(f'{kwargs["log_folder"]}/{PREFIX}.log', 'w')
