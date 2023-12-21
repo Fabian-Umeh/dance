@@ -129,7 +129,7 @@ class ScMoGCNWrapper:
         CELL_SIZE = kwargs['CELL_SIZE']
         TRAIN_SIZE = kwargs['TRAIN_SIZE']
 
-        g = g.to(self.args.device)
+        #g = g.to(self.args.device)
         y = y.float().to(self.args.device)
         y_test = y_test.float().to(self.args.device) if y_test is not None else None
 
@@ -154,7 +154,7 @@ class ScMoGCNWrapper:
 
             self.model.train()
             logits = self.model(g)
-            loss = criterion(logits[split['train']], y[split['train']])
+            loss = criterion(logits[split['train']].to(self.args.device), y[split['train']].to(self.args.device))
             running_loss = loss.item()
 
             opt.zero_grad()
